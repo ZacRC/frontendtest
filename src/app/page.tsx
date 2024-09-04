@@ -1,101 +1,140 @@
-import Image from "next/image";
+'use client';
+
+import React from 'react';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="bg-gradient-to-br from-gray-900 via-purple-900 to-indigo-900 text-white overflow-hidden">
+      {/* Hero Section */}
+      <div className="min-h-screen relative">
+        <div className="absolute inset-0 bg-[url('/stars.png')] opacity-50"></div>
+        <div className="container mx-auto px-4 py-16 relative z-10 min-h-screen flex flex-col">
+          <nav className="flex justify-between items-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <h1 className="text-2xl font-bold">AI Innovate</h1>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="space-x-6"
+            >
+              <Link href="#" className="hover:text-indigo-300 transition-colors">Overview</Link>
+              <Link href="#" className="hover:text-indigo-300 transition-colors">Features</Link>
+              <Link href="#" className="hover:text-indigo-300 transition-colors">Roadmap</Link>
+              <Link href="#" className="hover:text-indigo-300 transition-colors">About</Link>
+            </motion.div>
+          </nav>
+          
+          <div className="flex flex-col items-center text-center mt-auto mb-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              <div className="absolute -top-20 left-1/2 transform -translate-x-1/2 w-24 h-24 bg-gradient-to-br from-red-500 via-purple-500 to-blue-500 rounded-full blur-xl opacity-70"></div>
+              <h2 className="text-5xl md:text-7xl font-bold mb-6 relative">
+                AI beyond imagination,
+                <br />
+                one click away.
+              </h2>
+            </motion.div>
+            <motion.p 
+              className="text-xl md:text-2xl mb-12 text-gray-300"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+            >
+              Create extraordinary AI-powered solutions in seconds.
+            </motion.p>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="flex items-center space-x-4"
+            >
+              <input
+                type="text"
+                placeholder="Describe your AI project..."
+                className="bg-white bg-opacity-10 text-white placeholder-gray-400 px-6 py-3 rounded-full w-96 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              />
+              <button className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
+                Generate
+              </button>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="mt-8"
+            >
+              <Link href="#" className="text-indigo-300 hover:text-indigo-100 transition-colors">
+                Watch the demo video
+              </Link>
+            </motion.div>
+          </div>
+          
+          <div className="absolute bottom-4 right-4">
+            <span className="bg-white bg-opacity-10 text-xs font-semibold px-3 py-1 rounded-full">
+              AI Innovate Beta
+            </span>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
+
+      {/* Overview Section */}
+      <div className="min-h-screen relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-indigo-900 to-purple-900 opacity-50"></div>
+        <div className="absolute inset-0 bg-[url('/circuit-pattern.png')] opacity-20"></div>
+        <div className="container mx-auto px-4 py-24 relative z-10">
+          <motion.h2 
+            className="text-4xl md:text-6xl font-bold mb-12 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            Revolutionize Your Workflow
+          </motion.h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { title: "Instant Creation", description: "Generate complete websites, apps, and designs with a single prompt." },
+              { title: "AI-Powered Insights", description: "Leverage advanced algorithms to optimize your projects for maximum impact." },
+              { title: "Seamless Integration", description: "Easily incorporate our AI tools into your existing development pipeline." }
+            ].map((item, index) => (
+              <motion.div 
+                key={index}
+                className="bg-white bg-opacity-5 backdrop-filter backdrop-blur-lg rounded-lg p-6 border border-indigo-500 border-opacity-20"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 * index, duration: 0.8 }}
+              >
+                <h3 className="text-2xl font-semibold mb-4">{item.title}</h3>
+                <p className="text-gray-300">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
+          <motion.div 
+            className="mt-16 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+          >
+            <Link href="#" className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-colors inline-flex items-center">
+              Explore Features
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+            </Link>
+          </motion.div>
+        </div>
+      </div>
     </div>
   );
 }
